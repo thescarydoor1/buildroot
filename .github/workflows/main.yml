@@ -7,8 +7,10 @@ jobs:
     steps:
       - name: Checkout repository code
         uses: actions/checkout@v4
-      - name: make image
+      - name: make image defconfig
         run: make raspberrypi3_64_defconfig
+      - name: make image
+        run: make
       - name: upload image
         uses: actions/upload-artifact@v4
         with:
