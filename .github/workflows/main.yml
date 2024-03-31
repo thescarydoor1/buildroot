@@ -11,6 +11,8 @@ jobs:
         run: make raspberrypi3_64_defconfig
       - name: make image
         run: make
+        env:
+          PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib
       - name: upload image
         uses: actions/upload-artifact@v4
         with:
