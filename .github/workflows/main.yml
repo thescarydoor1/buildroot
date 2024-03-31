@@ -1,0 +1,16 @@
+name: buildroot
+run-name: testing buildroot
+on: [push]
+jobs:
+  create-image:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+      - name: make image
+        run: make raspberrypi3_64_defconfig
+      - name: upload image
+        uses: actions/upload-artifact@v4
+        with:
+          name: sdcard-image
+          path: output/images/sdcard.img
